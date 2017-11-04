@@ -7,4 +7,3 @@ C:\Users\EDDIE\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsF
 C:\Users\EDDIE\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.CoreCompileInputs.cache
 C:\Users\EDDIE\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
 C:\Users\EDDIE\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
-C:\Users\EDDIE\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csprojResolveAssemblyReference.cache

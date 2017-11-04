@@ -549,8 +549,8 @@ namespace WindowsFormsApp5
             int sign_locDiv = 0;
             string patt = "";
             int patt_loc = 0;
-            string str = "";
             int val = 0;
+
             sign_locPlus = box1.Text.IndexOf("+");
             sign_locMinus = box1.Text.IndexOf("-");
             sign_locMul = box1.Text.IndexOf("*");
@@ -594,16 +594,32 @@ namespace WindowsFormsApp5
                 {
                     val++;
                 }
-                
+
             }
 
-            if (val > patt_loc && dot == false)//Ovde se ispravlja polozaj minusa ukoliko ima dve negative cifre jedna za drugom da bi oznacio drugu.
+
+            try
             {
-                MessageBox.Show("Val je: " + val);//Polozaj ispravljene koordinate, tj. polozaj druge negativne cifre.
-                patt = box1.Text[val] + "" + box1.Text[val + 1];
-                patt_loc = box1.Text.IndexOf(patt);
-                MessageBox.Show("Ispravljeno: "+patt + " : " + patt_loc);
+                if (val > 1 && (patt_loc + 1) < (box1.Text.Length - 1))
+                {
+                    patt_loc = val;
+                    patt = box1.Text[patt_loc] + "" + box1.Text[patt_loc + 1];
+
+                }
             }
+            catch (Exception ex)
+            {
+            }
+
+            /*if (val > 1 && (patt_loc + 1) < (box1.Text.Length - 1))
+            {
+                patt_loc = val;
+                patt = box1.Text[patt_loc] + "" + box1.Text[patt_loc + 1];
+
+            }*/
+
+            MessageBox.Show("Ispravljeno: "+patt + " : " + box1.Text.IndexOf(patt));
+           
 
         }
     }
