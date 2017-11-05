@@ -517,7 +517,7 @@ namespace WindowsFormsApp5
                                 decimals += box1.Text[i];
                             }
                         
-                            if (box1.Text.Contains(decimals) && Convert.ToInt64(decimals) == 0)
+                            if (box1.Text.Contains(decimals) && Convert.ToDouble(decimals) == 0)
                             {
                                 box1.Text = box1.Text.Substring(0, dot_loc);
                             }
@@ -536,90 +536,49 @@ namespace WindowsFormsApp5
 
         private void erase_Click(object sender, EventArgs e)
         {
-            box1.Text = "";
+            dot = false;
+            res = false;
+            sign = false;
             box1.Text = "0";
         }
 
         private void buttonDecimal_Click(object sender, EventArgs e)
         {
 
-            int sign_locPlus = 0;
-            int sign_locMinus = 0;
-            int sign_locMul = 0;
-            int sign_locDiv = 0;
-            string patt = "";
-            int patt_loc = 0;
-            int val = 0;
+            int len = box1.Text.Length;
 
-            sign_locPlus = box1.Text.IndexOf("+");
-            sign_locMinus = box1.Text.IndexOf("-");
-            sign_locMul = box1.Text.IndexOf("*");
-            sign_locDiv = box1.Text.IndexOf("/");
-
-            if (sign_locPlus > 0 && (sign_locPlus + 1) < box1.Text.Length && sign_locPlus < box1.Text.Length)
+            if (len == 0)
             {
-                patt = box1.Text[sign_locPlus] + "" + box1.Text[sign_locPlus + 1];
-                patt_loc = box1.Text.IndexOf(patt);
-                dot = false;
-            }
-            else if (box1.Text[0] == '-' && (sign_locMinus + 1) < box1.Text.Length)
-            {
-                patt = box1.Text[sign_locMinus] + "" + box1.Text[sign_locMinus + 1];
-                patt_loc = box1.Text.IndexOf(patt);
-                dot = false;
-            }
-            else if ((sign_locMinus > 0 && (sign_locMinus + 1) < box1.Text.Length) && sign_locPlus < box1.Text.Length)
-            {
-                patt = box1.Text[sign_locMinus] + "" + box1.Text[sign_locMinus + 1];
-                patt_loc = box1.Text.IndexOf(patt);
-                dot = false;
-            }
-            else if (sign_locMul > 0 && (sign_locMul + 1) < box1.Text.Length && sign_locPlus < box1.Text.Length)
-            {
-                patt = box1.Text[sign_locMul] + "" + box1.Text[sign_locMul + 1];
-                patt_loc = box1.Text.IndexOf(patt);
-                dot = false;
-            }
-            else if (sign_locDiv > 0 && (sign_locDiv + 1) < box1.Text.Length && sign_locPlus < box1.Text.Length)
-            {
-                patt = box1.Text[sign_locDiv] + "" + box1.Text[sign_locDiv + 1];
-                patt_loc = box1.Text.IndexOf(patt);
-                dot = false;
+                dot = true;
             }
 
-            for (int i = 0; i < box1.Text.Length; i++)
+            for (int i = 0; i < len; i++)
             {
 
-                if (box1.Text[i] == '-')
+                if (box1.Text[i] == '+' || box1.Text[i] == '-' || box1.Text[i] == '*' || box1.Text[i] == '/' || box1.Text[i] == '.')
                 {
-                    val++;
+                    dot = true;
+                }
+
+                if (((i + 1) < len) && (box1.Text[i] == '+' || box1.Text[i] == '-' || box1.Text[i] == '*' || box1.Text[i] == '/') && (box1.Text[i + 1] == '0' || box1.Text[i + 1] == '1' || box1.Text[i + 1] == '2' || box1.Text[i + 1] == '3' || box1.Text[i + 1] == '4' || box1.Text[i + 1] == '5' || box1.Text[i + 1] == '6' || box1.Text[i + 1] == '7' || box1.Text[i + 1] == '8' || box1.Text[i + 1] == '9'))
+                {
+                    dot = false;
+                }
+
+                
+
+                if (i > 0 && box1.Text[i - 1] == '.' && (box1.Text[i] == '0' || box1.Text[i] == '1' || box1.Text[i] == '2' || box1.Text[i] == '3' || box1.Text[i] == '4' || box1.Text[i] == '5' || box1.Text[i] == '6' || box1.Text[i] == '7' || box1.Text[i] == '8' || box1.Text[i] == '9'))
+                {
+                    dot = true;
                 }
 
             }
 
-
-            try
+            if (dot == false)
             {
-                if (val > 1 && (patt_loc + 1) < (box1.Text.Length - 1))
-                {
-                    patt_loc = val;
-                    patt = box1.Text[patt_loc] + "" + box1.Text[patt_loc + 1];
-
-                }
+                box1.Text += buttonDecimal.Text;
+                dot = true;
             }
-            catch (Exception ex)
-            {
-            }
-
-            /*if (val > 1 && (patt_loc + 1) < (box1.Text.Length - 1))
-            {
-                patt_loc = val;
-                patt = box1.Text[patt_loc] + "" + box1.Text[patt_loc + 1];
-
-            }*/
-
-            MessageBox.Show("Ispravljeno: "+patt + " : " + box1.Text.IndexOf(patt));
-           
 
         }
     }
