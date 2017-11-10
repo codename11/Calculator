@@ -46,6 +46,8 @@
             this.buttonEqual = new System.Windows.Forms.Button();
             this.erase = new System.Windows.Forms.Button();
             this.buttonDecimal = new System.Windows.Forms.Button();
+            this.button_leftB = new System.Windows.Forms.Button();
+            this.button_rightB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // box1
@@ -203,9 +205,9 @@
             // 
             // buttonEqual
             // 
-            this.buttonEqual.Location = new System.Drawing.Point(191, 181);
+            this.buttonEqual.Location = new System.Drawing.Point(191, 206);
             this.buttonEqual.Name = "buttonEqual";
-            this.buttonEqual.Size = new System.Drawing.Size(75, 23);
+            this.buttonEqual.Size = new System.Drawing.Size(75, 56);
             this.buttonEqual.TabIndex = 15;
             this.buttonEqual.Text = "=";
             this.buttonEqual.UseVisualStyleBackColor = true;
@@ -215,7 +217,7 @@
             // 
             this.erase.Location = new System.Drawing.Point(29, 210);
             this.erase.Name = "erase";
-            this.erase.Size = new System.Drawing.Size(75, 23);
+            this.erase.Size = new System.Drawing.Size(156, 23);
             this.erase.TabIndex = 16;
             this.erase.Text = "C";
             this.erase.UseVisualStyleBackColor = true;
@@ -224,7 +226,7 @@
             // buttonDecimal
             // 
             this.buttonDecimal.Font = new System.Drawing.Font("Digital-7 Mono", 2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDecimal.Location = new System.Drawing.Point(111, 210);
+            this.buttonDecimal.Location = new System.Drawing.Point(191, 181);
             this.buttonDecimal.Name = "buttonDecimal";
             this.buttonDecimal.Size = new System.Drawing.Size(75, 23);
             this.buttonDecimal.TabIndex = 17;
@@ -232,11 +234,33 @@
             this.buttonDecimal.UseVisualStyleBackColor = true;
             this.buttonDecimal.Click += new System.EventHandler(this.buttonDecimal_Click);
             // 
+            // button_leftB
+            // 
+            this.button_leftB.Location = new System.Drawing.Point(30, 239);
+            this.button_leftB.Name = "button_leftB";
+            this.button_leftB.Size = new System.Drawing.Size(75, 23);
+            this.button_leftB.TabIndex = 18;
+            this.button_leftB.Text = "(";
+            this.button_leftB.UseVisualStyleBackColor = true;
+            this.button_leftB.Click += new System.EventHandler(this.button_leftB_Click);
+            // 
+            // button_rightB
+            // 
+            this.button_rightB.Location = new System.Drawing.Point(111, 239);
+            this.button_rightB.Name = "button_rightB";
+            this.button_rightB.Size = new System.Drawing.Size(75, 23);
+            this.button_rightB.TabIndex = 19;
+            this.button_rightB.Text = ")";
+            this.button_rightB.UseVisualStyleBackColor = true;
+            this.button_rightB.Click += new System.EventHandler(this.button_rightB_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 261);
+            this.ClientSize = new System.Drawing.Size(291, 272);
+            this.Controls.Add(this.button_rightB);
+            this.Controls.Add(this.button_leftB);
             this.Controls.Add(this.buttonDecimal);
             this.Controls.Add(this.erase);
             this.Controls.Add(this.buttonEqual);
@@ -283,6 +307,8 @@
         private System.Windows.Forms.Button buttonEqual;
         private System.Windows.Forms.Button erase;
         private System.Windows.Forms.Button buttonDecimal;
+        private System.Windows.Forms.Button button_leftB;
+        private System.Windows.Forms.Button button_rightB;
     }
 }
 

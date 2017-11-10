@@ -17,6 +17,7 @@ namespace WindowsFormsApp5
         bool dot = false;
         bool res = false;
         bool sign = false;
+        bool bracket = false;
 
         private void No1_Click(object sender, EventArgs e)
         {
@@ -334,6 +335,7 @@ namespace WindowsFormsApp5
             int sign_count = 0;
             int len = box1.Text.Length;
             char strx;
+            
             if (str2 == str3 || (str3 == "+" || str3 == "-" || str3 == "*" || str3 == "/" || str3 == "/" || str3 == "."))
             {
                 box1.Text = box1.Text.Substring(0, str1.Length - 2);//Skracuje string u text boxu za unesene znakove.
@@ -366,6 +368,8 @@ namespace WindowsFormsApp5
 
         private void buttonMinus_Click(object sender, EventArgs e)
         {
+            
+
             if (box1.Text == "0")
             {
                 box1.Text = buttonMinus.Text;
@@ -396,9 +400,18 @@ namespace WindowsFormsApp5
                         sign_count++;
                     }
 
+                    if (box1.Text[i] == ')')
+                    {
+                        bracket = true;
+                    }
+                    else if (box1.Text[i] == '(')
+                    {
+                        bracket = true;
+                    }
+
                 }
 
-                if (sign_count > 1)
+                if (sign_count > 1 && bracket == false)
                 {
 
                     DataTable dt = new DataTable();
@@ -406,6 +419,21 @@ namespace WindowsFormsApp5
                     box1.Text = v.ToString();
                     box1.Text += buttonMinus.Text;
                     res = true;
+                    
+                }
+
+                if (sign_count > 1 && bracket == true)
+                {
+                    if (box1.Text[box1.Text.Length -2] == ')')
+                    {
+                        DataTable dt = new DataTable();
+                        var v = dt.Compute(str2, "");
+                        box1.Text = v.ToString();
+                        box1.Text += buttonMinus.Text;
+                        res = true;
+                        bracket = false;
+                    }
+                    
                 }
             }
             sign = true;
@@ -580,6 +608,24 @@ namespace WindowsFormsApp5
                 dot = true;
             }
 
+        }
+
+        private void button_leftB_Click(object sender, EventArgs e)
+        {
+            if (((box1.Text.Length) > 0) && (box1.Text[box1.Text.Length - 1] == '+' || box1.Text[box1.Text.Length - 1] == '-' || box1.Text[box1.Text.Length - 1] == '*' || box1.Text[box1.Text.Length - 1] == '/'))
+            {
+                box1.Text += button_leftB.Text;
+            }
+            
+        }
+
+        private void button_rightB_Click(object sender, EventArgs e)
+        {
+            if (box1.Text[box1.Text.Length - 1] == '0' || box1.Text[box1.Text.Length - 1] == '1' || box1.Text[box1.Text.Length - 1] == '2' || box1.Text[box1.Text.Length - 1] == '3' || box1.Text[box1.Text.Length - 1] == '4' || box1.Text[box1.Text.Length - 1] == '5' || box1.Text[box1.Text.Length - 1] == '6' || box1.Text[box1.Text.Length - 1] == '7' || box1.Text[box1.Text.Length - 1] == '8' || box1.Text[box1.Text.Length - 1] == '9')
+            {
+                box1.Text += button_rightB.Text;
+            }
+            
         }
     }
 }
