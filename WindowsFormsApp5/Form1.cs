@@ -18,6 +18,8 @@ namespace WindowsFormsApp5
         bool res = false;
         bool sign = false;
         bool bracket = false;
+        bool bracketL = false;
+        bool bracketR = false;
 
         private void No1_Click(object sender, EventArgs e)
         {
@@ -435,6 +437,12 @@ namespace WindowsFormsApp5
                     }
                     
                 }
+                
+                if (sign_count >= 2 && bracket == true && box1.Text[box1.Text.Length - 1] == '-' && (box1.Text[box1.Text.Length - 2] == '0' || box1.Text[box1.Text.Length - 2] == '1' || box1.Text[box1.Text.Length - 2] == '2' || box1.Text[box1.Text.Length - 2] == '3' || box1.Text[box1.Text.Length - 2] == '4' || box1.Text[box1.Text.Length - 2] == '5' || box1.Text[box1.Text.Length - 2] == '6' || box1.Text[box1.Text.Length - 2] == '7' || box1.Text[box1.Text.Length - 2] == '8' || box1.Text[box1.Text.Length - 2] == '9'))
+                {
+                    box1.Text = box1.Text.Substring(0, (box1.Text.Length - 1));
+                    
+                }
             }
             sign = true;
         }
@@ -583,7 +591,7 @@ namespace WindowsFormsApp5
             for (int i = 0; i < len; i++)
             {
 
-                if (box1.Text[i] == '+' || box1.Text[i] == '-' || box1.Text[i] == '*' || box1.Text[i] == '/' || box1.Text[i] == '.')
+                if ((box1.Text[i] == '+' || box1.Text[i] == '-' || box1.Text[i] == '*' || box1.Text[i] == '/' || box1.Text[i] == '.') && bracketL == false)
                 {
                     dot = true;
                 }
@@ -607,7 +615,7 @@ namespace WindowsFormsApp5
                 box1.Text += buttonDecimal.Text;
                 dot = true;
             }
-
+            
         }
 
         private void button_leftB_Click(object sender, EventArgs e)
@@ -615,6 +623,7 @@ namespace WindowsFormsApp5
             if (((box1.Text.Length) > 0) && (box1.Text[box1.Text.Length - 1] == '+' || box1.Text[box1.Text.Length - 1] == '-' || box1.Text[box1.Text.Length - 1] == '*' || box1.Text[box1.Text.Length - 1] == '/'))
             {
                 box1.Text += button_leftB.Text;
+                bracketL = true;
             }
             
         }
@@ -624,6 +633,7 @@ namespace WindowsFormsApp5
             if (box1.Text[box1.Text.Length - 1] == '0' || box1.Text[box1.Text.Length - 1] == '1' || box1.Text[box1.Text.Length - 1] == '2' || box1.Text[box1.Text.Length - 1] == '3' || box1.Text[box1.Text.Length - 1] == '4' || box1.Text[box1.Text.Length - 1] == '5' || box1.Text[box1.Text.Length - 1] == '6' || box1.Text[box1.Text.Length - 1] == '7' || box1.Text[box1.Text.Length - 1] == '8' || box1.Text[box1.Text.Length - 1] == '9')
             {
                 box1.Text += button_rightB.Text;
+                bracketR = true;
             }
             
         }

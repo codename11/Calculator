@@ -54,7 +54,7 @@
             // 
             this.box1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.box1.Enabled = false;
-            this.box1.Font = new System.Drawing.Font("Digital-7 Mono", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box1.Font = new System.Drawing.Font("Digital-7 Mono", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box1.Location = new System.Drawing.Point(29, 12);
             this.box1.Name = "box1";
             this.box1.Size = new System.Drawing.Size(237, 34);
@@ -225,7 +225,7 @@
             // 
             // buttonDecimal
             // 
-            this.buttonDecimal.Font = new System.Drawing.Font("Digital-7 Mono", 2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDecimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDecimal.Location = new System.Drawing.Point(191, 181);
             this.buttonDecimal.Name = "buttonDecimal";
             this.buttonDecimal.Size = new System.Drawing.Size(75, 23);
