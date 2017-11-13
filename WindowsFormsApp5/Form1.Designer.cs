@@ -48,6 +48,7 @@
             this.buttonDecimal = new System.Windows.Forms.Button();
             this.button_leftB = new System.Windows.Forms.Button();
             this.button_rightB = new System.Windows.Forms.Button();
+            this.button_ec = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // box1
@@ -174,6 +175,7 @@
             // 
             // buttonMinus
             // 
+            this.buttonMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMinus.Location = new System.Drawing.Point(191, 152);
             this.buttonMinus.Name = "buttonMinus";
             this.buttonMinus.Size = new System.Drawing.Size(75, 23);
@@ -225,12 +227,13 @@
             // 
             // buttonDecimal
             // 
-            this.buttonDecimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDecimal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonDecimal.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.buttonDecimal.Location = new System.Drawing.Point(191, 181);
             this.buttonDecimal.Name = "buttonDecimal";
             this.buttonDecimal.Size = new System.Drawing.Size(75, 23);
             this.buttonDecimal.TabIndex = 17;
-            this.buttonDecimal.Text = ".";
+            this.buttonDecimal.Text = "·";
             this.buttonDecimal.UseVisualStyleBackColor = true;
             this.buttonDecimal.Click += new System.EventHandler(this.buttonDecimal_Click);
             // 
@@ -254,11 +257,22 @@
             this.button_rightB.UseVisualStyleBackColor = true;
             this.button_rightB.Click += new System.EventHandler(this.button_rightB_Click);
             // 
+            // button_ec
+            // 
+            this.button_ec.Location = new System.Drawing.Point(30, 269);
+            this.button_ec.Name = "button_ec";
+            this.button_ec.Size = new System.Drawing.Size(236, 42);
+            this.button_ec.TabIndex = 20;
+            this.button_ec.Text = "ec";
+            this.button_ec.UseVisualStyleBackColor = true;
+            this.button_ec.Click += new System.EventHandler(this.button_ec_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 272);
+            this.ClientSize = new System.Drawing.Size(293, 323);
+            this.Controls.Add(this.button_ec);
             this.Controls.Add(this.button_rightB);
             this.Controls.Add(this.button_leftB);
             this.Controls.Add(this.buttonDecimal);
@@ -309,6 +323,7 @@
         private System.Windows.Forms.Button buttonDecimal;
         private System.Windows.Forms.Button button_leftB;
         private System.Windows.Forms.Button button_rightB;
+        private System.Windows.Forms.Button button_ec;
     }
 }
 

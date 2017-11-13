@@ -353,17 +353,46 @@ namespace WindowsFormsApp5
                 {
                     sign_count++;
                 }
-                
+
+                if (box1.Text[i] == ')')
+                {
+                    bracket = true;
+                }
+                else if (box1.Text[i] == '(')
+                {
+                    bracket = true;
+                }
             }
-          
-            if (sign_count>1)
+
+            if (sign_count > 1 && bracket == false)
             {
-                
+
                 DataTable dt = new DataTable();
                 var v = dt.Compute(str2, "");
                 box1.Text = v.ToString();
                 box1.Text += buttonPlus.Text;
                 res = true;
+
+            }
+
+            if (sign_count > 1 && bracket == true)
+            {
+                if (box1.Text[box1.Text.Length - 2] == ')')
+                {
+                    DataTable dt = new DataTable();
+                    var v = dt.Compute(str2, "");
+                    box1.Text = v.ToString();
+                    box1.Text += buttonPlus.Text;
+                    res = true;
+                    bracket = false;
+                }
+
+            }
+
+            if (sign_count >= 2 && bracket == true && box1.Text[box1.Text.Length - 1] == '-' && (box1.Text[box1.Text.Length - 2] == '0' || box1.Text[box1.Text.Length - 2] == '1' || box1.Text[box1.Text.Length - 2] == '2' || box1.Text[box1.Text.Length - 2] == '3' || box1.Text[box1.Text.Length - 2] == '4' || box1.Text[box1.Text.Length - 2] == '5' || box1.Text[box1.Text.Length - 2] == '6' || box1.Text[box1.Text.Length - 2] == '7' || box1.Text[box1.Text.Length - 2] == '8' || box1.Text[box1.Text.Length - 2] == '9'))
+            {
+                box1.Text = box1.Text.Substring(0, (box1.Text.Length - 1));
+
             }
             sign = true;
         }
@@ -462,26 +491,39 @@ namespace WindowsFormsApp5
                 box1.Text += buttonMultiply.Text;//Dodaje znak na skraceni string. 
             }
 
-            str2 = box1.Text.Substring(0, box1.Text.Length - 1);
-
-            for (int i = 0; i < box1.Text.Length; i++)
+            for (int i = 0; i < len-1; i++)
             {
-                strx = box1.Text[i];
-                if (strx == '+' || strx == '-' || strx == '*' || strx == '/')
-                {
-                    sign_count++;
-                }
+                
+                    strx = box1.Text[i];
+
+                    if (box1.Text[0] != '-' && (strx == '+' || strx == '-' || strx == '*' || strx == '/'))
+                    {
+                        sign_count++;
+                    }
+
+               
 
             }
 
-            if (sign_count > 1)
+            if (box1.Text[len - 2] == '(' && box1.Text[box1.Text.Length - 1] == '*')
             {
+                box1.Text = box1.Text.Substring(0, (len - 1));
+            }
 
+            if (bracketL == true && box1.Text[box1.Text.Length - 1] == '*')
+            {
+                box1.Text = box1.Text.Substring(0, (len - 1));
+            }
+            
+            if (sign_count > 1 && ((bracketR == false && bracketL == false) || (bracketR == true && bracketL == true)))
+            {
                 DataTable dt = new DataTable();
-                var v = dt.Compute(str2, "");
+                var v = dt.Compute(box1.Text, "");
                 box1.Text = v.ToString();
                 box1.Text += buttonMultiply.Text;
                 res = true;
+                bracketL = false;
+                bracketR = false;
             }
             sign = true;
         }
@@ -501,8 +543,6 @@ namespace WindowsFormsApp5
                 box1.Text += buttonDivide.Text;//Dodaje znak na skraceni string. 
             }
 
-            str2 = box1.Text.Substring(0, box1.Text.Length - 1);
-
             for (int i = 0; i < box1.Text.Length; i++)
             {
                 strx = box1.Text[i];
@@ -513,14 +553,25 @@ namespace WindowsFormsApp5
 
             }
 
-            if (sign_count > 1)
+            if (box1.Text[box1.Text.Length - 2] == '(' && box1.Text[box1.Text.Length - 1] == '/')
             {
+                box1.Text = box1.Text.Substring(0, (len - 1));
+            }
 
+            if (bracketL == true && box1.Text[box1.Text.Length - 1] == '/')
+            {
+                box1.Text = box1.Text.Substring(0, (len - 1));
+            }
+
+            if (sign_count > 1 && ((bracketR == false && bracketL == false) || (bracketR == true && bracketL == true)))
+            {
                 DataTable dt = new DataTable();
-                var v = dt.Compute(str2, "");
+                var v = dt.Compute(box1.Text, "");
                 box1.Text = v.ToString();
-                box1.Text += buttonDivide.Text;
+                box1.Text += buttonMultiply.Text;
                 res = true;
+                bracketL = false;
+                bracketR = false;
             }
             sign = true;
         }
@@ -535,7 +586,7 @@ namespace WindowsFormsApp5
                 int dot_loc = 0;
                 bool dot_contains = false;
                 string decimals = "";
-                if ((str != "+") && (str != "-") && (str != "*") && (str != "/") && (str != "."))
+                if ((str != "+") && (str != "-") && (str != "*") && (str != "/") && (str != ".") && ((bracketL == true && bracketR == true) || (bracketL == false && bracketR == false)))
                 {
                     DataTable dt = new DataTable();
                     var v = dt.Compute(box1.Text, "");
@@ -576,6 +627,8 @@ namespace WindowsFormsApp5
             res = false;
             sign = false;
             box1.Text = "0";
+            bracketL = false;
+            bracketR = false;
         }
 
         private void buttonDecimal_Click(object sender, EventArgs e)
@@ -601,21 +654,54 @@ namespace WindowsFormsApp5
                     dot = false;
                 }
 
-                
-
                 if (i > 0 && box1.Text[i - 1] == '.' && (box1.Text[i] == '0' || box1.Text[i] == '1' || box1.Text[i] == '2' || box1.Text[i] == '3' || box1.Text[i] == '4' || box1.Text[i] == '5' || box1.Text[i] == '6' || box1.Text[i] == '7' || box1.Text[i] == '8' || box1.Text[i] == '9'))
                 {
                     dot = true;
                 }
 
+                if (((i-1) > 0) && box1.Text[i - 1] == '(' && (box1.Text[i] == '0' || box1.Text[i] == '1' || box1.Text[i] == '2' || box1.Text[i] == '3' || box1.Text[i] == '4' || box1.Text[i] == '5' || box1.Text[i] == '6' || box1.Text[i] == '7' || box1.Text[i] == '8' || box1.Text[i] == '9'))
+                {
+                    dot = false;
+                }
+
+                if (((i - 2) > 0) && (box1.Text[i - 2] == '(') && (box1.Text[i - 1] == '-') && (box1.Text[i] == '0' || box1.Text[i] == '1' || box1.Text[i] == '2' || box1.Text[i] == '3' || box1.Text[i] == '4' || box1.Text[i] == '5' || box1.Text[i] == '6' || box1.Text[i] == '7' || box1.Text[i] == '8' || box1.Text[i] == '9'))
+                {
+                    dot = false;
+                }
+
+            }
+            string krk = "";
+            for (int i = (len-1); i >= 0; i--)
+            {
+                krk += box1.Text[i];
+            }
+            
+            if (((box1.Text.Length - 2) > 0) && box1.Text[box1.Text.Length - 2] == '(' && (box1.Text[box1.Text.Length - 1] == '0' || box1.Text[box1.Text.Length - 1] == '1' || box1.Text[box1.Text.Length - 1] == '2' || box1.Text[box1.Text.Length - 1] == '3' || box1.Text[box1.Text.Length - 1] == '4' || box1.Text[box1.Text.Length - 1] == '5' || box1.Text[box1.Text.Length - 1] == '6' || box1.Text[box1.Text.Length - 1] == '7' || box1.Text[box1.Text.Length - 1] == '8' || box1.Text[box1.Text.Length - 1] == '9'))
+            {
+                dot = false;
             }
 
+            if (box1.Text[box1.Text.Length - 1] == '(')
+            {
+                dot = true;
+            }
+
+            if (box1.Text[box1.Text.Length - 1] == '.')
+            {
+                dot = true;
+            }
+
+            if ((len - 2 > 0) && (box1.Text[box1.Text.Length - 2] == '+' || box1.Text[box1.Text.Length - 2] == '-' || box1.Text[box1.Text.Length - 2] == '*' || box1.Text[box1.Text.Length - 2] == '/') && (box1.Text[box1.Text.Length - 1] == '0' || box1.Text[box1.Text.Length - 1] == '1' || box1.Text[box1.Text.Length - 1] == '2' || box1.Text[box1.Text.Length - 1] == '3' || box1.Text[box1.Text.Length - 1] == '4' || box1.Text[box1.Text.Length - 1] == '5' || box1.Text[box1.Text.Length - 1] == '6' || box1.Text[box1.Text.Length - 1] == '7' || box1.Text[box1.Text.Length - 1] == '8' || box1.Text[box1.Text.Length - 1] == '9'))
+            {
+                dot = false;
+            }
+            
             if (dot == false)
             {
                 box1.Text += buttonDecimal.Text;
                 dot = true;
             }
-            
+
         }
 
         private void button_leftB_Click(object sender, EventArgs e)
@@ -637,5 +723,36 @@ namespace WindowsFormsApp5
             }
             
         }
+
+        private void button_ec_Click(object sender, EventArgs e)
+        {
+            int len = box1.Text.Length;
+            if (len > 0)
+            {
+
+                if (box1.Text[len - 1] == '.')
+                {
+                    dot = false;
+                }
+                else if (box1.Text[len - 1] == '+' || box1.Text[len - 1] == '-' || box1.Text[len - 1] == '*' || box1.Text[len - 1] == '/')
+                {
+                    sign = false;
+                }
+
+                box1.Text = box1.Text.Substring(0, (len - 1));
+
+                if (len == 1)
+                {
+                    dot = false;
+                    res = false;
+                    sign = false;
+                    box1.Text = "0";
+                    bracketL = false;
+                    bracketR = false;
+                }
+            }
+
+        }
+
     }
 }
