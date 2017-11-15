@@ -55,10 +55,10 @@
             // 
             this.box1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.box1.Enabled = false;
-            this.box1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box1.Font = new System.Drawing.Font("Digital-7", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box1.Location = new System.Drawing.Point(29, 12);
             this.box1.Name = "box1";
-            this.box1.Size = new System.Drawing.Size(237, 38);
+            this.box1.Size = new System.Drawing.Size(237, 34);
             this.box1.TabIndex = 0;
             this.box1.Text = "0";
             this.box1.TextChanged += new System.EventHandler(this.box1_TextChanged);
