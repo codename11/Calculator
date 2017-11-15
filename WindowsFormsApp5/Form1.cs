@@ -514,7 +514,32 @@ namespace WindowsFormsApp5
             {
                 box1.Text = box1.Text.Substring(0, (len - 1));
             }
-            
+
+            for (int i = 0; i < len; i++)
+            {
+                 if (box1.Text[i] == '(')
+                {
+                    bracketL = true;
+                }
+
+                if (box1.Text[i] == ')')
+                {
+                    bracketR = true;
+                }
+
+            }
+
+            if (bracketL == false && bracketR == false && box1.Text[len - 1] == '*')
+            {
+                DataTable dt = new DataTable();
+                var v = dt.Compute(box1.Text.Substring(0, (len-1)), "");
+                box1.Text = v.ToString();
+                box1.Text += buttonMultiply.Text;
+                res = true;
+                bracketL = false;
+                bracketR = false;
+            }
+
             if (sign_count > 1 && ((bracketR == false && bracketL == false) || (bracketR == true && bracketL == true)))
             {
                 DataTable dt = new DataTable();
@@ -543,7 +568,7 @@ namespace WindowsFormsApp5
                 box1.Text += buttonDivide.Text;//Dodaje znak na skraceni string. 
             }
 
-            for (int i = 0; i < box1.Text.Length; i++)
+            for (int i = 0; i < len-1; i++)
             {
                 strx = box1.Text[i];
                 if (strx == '+' || strx == '-' || strx == '*' || strx == '/')
@@ -563,16 +588,42 @@ namespace WindowsFormsApp5
                 box1.Text = box1.Text.Substring(0, (len - 1));
             }
 
+            for (int i = 0; i < len; i++)
+            {
+                if (box1.Text[i] == '(')
+                {
+                    bracketL = true;
+                }
+
+                if (box1.Text[i] == ')')
+                {
+                    bracketR = true;
+                }
+
+            }
+
+            if (bracketL == false && bracketR == false && box1.Text[len - 1] == '/')
+            {
+                DataTable dt = new DataTable();
+                var v = dt.Compute(box1.Text.Substring(0, (len - 1)), "");
+                box1.Text = v.ToString();
+                box1.Text += buttonDivide.Text;
+                res = true;
+                bracketL = false;
+                bracketR = false;
+            }
+
             if (sign_count > 1 && ((bracketR == false && bracketL == false) || (bracketR == true && bracketL == true)))
             {
                 DataTable dt = new DataTable();
                 var v = dt.Compute(box1.Text, "");
                 box1.Text = v.ToString();
-                box1.Text += buttonMultiply.Text;
+                box1.Text += buttonDivide.Text;
                 res = true;
                 bracketL = false;
                 bracketR = false;
             }
+
             sign = true;
         }
 
