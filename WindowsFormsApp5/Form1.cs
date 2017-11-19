@@ -515,7 +515,7 @@ namespace WindowsFormsApp5
                 box1.Text = box1.Text.Substring(0, (len - 1));
             }
 
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < len-1; i++)
             {
                  if (box1.Text[i] == '(')
                 {
@@ -588,7 +588,7 @@ namespace WindowsFormsApp5
                 box1.Text = box1.Text.Substring(0, (len - 1));
             }
 
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < len-1; i++)
             {
                 if (box1.Text[i] == '(')
                 {
