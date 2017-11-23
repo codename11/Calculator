@@ -49,6 +49,10 @@
             this.button_leftB = new System.Windows.Forms.Button();
             this.button_rightB = new System.Windows.Forms.Button();
             this.button_ec = new System.Windows.Forms.Button();
+            this.button1_modulo = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // box1
@@ -56,7 +60,7 @@
             this.box1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.box1.Enabled = false;
             this.box1.Font = new System.Drawing.Font("Digital-7", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box1.Location = new System.Drawing.Point(29, 12);
+            this.box1.Location = new System.Drawing.Point(12, 28);
             this.box1.Name = "box1";
             this.box1.Size = new System.Drawing.Size(237, 34);
             this.box1.TabIndex = 0;
@@ -65,7 +69,7 @@
             // 
             // No1
             // 
-            this.No1.Location = new System.Drawing.Point(29, 62);
+            this.No1.Location = new System.Drawing.Point(12, 78);
             this.No1.Name = "No1";
             this.No1.Size = new System.Drawing.Size(75, 23);
             this.No1.TabIndex = 1;
@@ -75,7 +79,7 @@
             // 
             // No2
             // 
-            this.No2.Location = new System.Drawing.Point(110, 62);
+            this.No2.Location = new System.Drawing.Point(93, 78);
             this.No2.Name = "No2";
             this.No2.Size = new System.Drawing.Size(75, 23);
             this.No2.TabIndex = 2;
@@ -85,7 +89,7 @@
             // 
             // No3
             // 
-            this.No3.Location = new System.Drawing.Point(191, 62);
+            this.No3.Location = new System.Drawing.Point(174, 78);
             this.No3.Name = "No3";
             this.No3.Size = new System.Drawing.Size(75, 23);
             this.No3.TabIndex = 3;
@@ -95,7 +99,7 @@
             // 
             // No4
             // 
-            this.No4.Location = new System.Drawing.Point(29, 91);
+            this.No4.Location = new System.Drawing.Point(12, 107);
             this.No4.Name = "No4";
             this.No4.Size = new System.Drawing.Size(75, 23);
             this.No4.TabIndex = 4;
@@ -105,7 +109,7 @@
             // 
             // No5
             // 
-            this.No5.Location = new System.Drawing.Point(110, 91);
+            this.No5.Location = new System.Drawing.Point(93, 107);
             this.No5.Name = "No5";
             this.No5.Size = new System.Drawing.Size(75, 23);
             this.No5.TabIndex = 5;
@@ -115,7 +119,7 @@
             // 
             // No6
             // 
-            this.No6.Location = new System.Drawing.Point(191, 91);
+            this.No6.Location = new System.Drawing.Point(174, 107);
             this.No6.Name = "No6";
             this.No6.Size = new System.Drawing.Size(75, 23);
             this.No6.TabIndex = 6;
@@ -125,7 +129,7 @@
             // 
             // No7
             // 
-            this.No7.Location = new System.Drawing.Point(29, 120);
+            this.No7.Location = new System.Drawing.Point(12, 136);
             this.No7.Name = "No7";
             this.No7.Size = new System.Drawing.Size(75, 23);
             this.No7.TabIndex = 7;
@@ -135,7 +139,7 @@
             // 
             // No8
             // 
-            this.No8.Location = new System.Drawing.Point(110, 120);
+            this.No8.Location = new System.Drawing.Point(93, 136);
             this.No8.Name = "No8";
             this.No8.Size = new System.Drawing.Size(75, 23);
             this.No8.TabIndex = 8;
@@ -145,7 +149,7 @@
             // 
             // No9
             // 
-            this.No9.Location = new System.Drawing.Point(191, 120);
+            this.No9.Location = new System.Drawing.Point(174, 136);
             this.No9.Name = "No9";
             this.No9.Size = new System.Drawing.Size(75, 23);
             this.No9.TabIndex = 9;
@@ -155,7 +159,7 @@
             // 
             // No0
             // 
-            this.No0.Location = new System.Drawing.Point(29, 152);
+            this.No0.Location = new System.Drawing.Point(12, 168);
             this.No0.Name = "No0";
             this.No0.Size = new System.Drawing.Size(75, 23);
             this.No0.TabIndex = 10;
@@ -165,7 +169,7 @@
             // 
             // buttonPlus
             // 
-            this.buttonPlus.Location = new System.Drawing.Point(110, 152);
+            this.buttonPlus.Location = new System.Drawing.Point(93, 168);
             this.buttonPlus.Name = "buttonPlus";
             this.buttonPlus.Size = new System.Drawing.Size(75, 23);
             this.buttonPlus.TabIndex = 11;
@@ -176,7 +180,7 @@
             // buttonMinus
             // 
             this.buttonMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMinus.Location = new System.Drawing.Point(191, 152);
+            this.buttonMinus.Location = new System.Drawing.Point(174, 168);
             this.buttonMinus.Name = "buttonMinus";
             this.buttonMinus.Size = new System.Drawing.Size(75, 23);
             this.buttonMinus.TabIndex = 12;
@@ -186,7 +190,7 @@
             // 
             // buttonMultiply
             // 
-            this.buttonMultiply.Location = new System.Drawing.Point(29, 181);
+            this.buttonMultiply.Location = new System.Drawing.Point(12, 197);
             this.buttonMultiply.Name = "buttonMultiply";
             this.buttonMultiply.Size = new System.Drawing.Size(75, 23);
             this.buttonMultiply.TabIndex = 13;
@@ -197,7 +201,7 @@
             // 
             // buttonDivide
             // 
-            this.buttonDivide.Location = new System.Drawing.Point(110, 181);
+            this.buttonDivide.Location = new System.Drawing.Point(93, 197);
             this.buttonDivide.Name = "buttonDivide";
             this.buttonDivide.Size = new System.Drawing.Size(75, 23);
             this.buttonDivide.TabIndex = 14;
@@ -207,9 +211,9 @@
             // 
             // buttonEqual
             // 
-            this.buttonEqual.Location = new System.Drawing.Point(192, 210);
+            this.buttonEqual.Location = new System.Drawing.Point(174, 197);
             this.buttonEqual.Name = "buttonEqual";
-            this.buttonEqual.Size = new System.Drawing.Size(74, 56);
+            this.buttonEqual.Size = new System.Drawing.Size(74, 52);
             this.buttonEqual.TabIndex = 15;
             this.buttonEqual.Text = "=";
             this.buttonEqual.UseVisualStyleBackColor = true;
@@ -217,9 +221,9 @@
             // 
             // erase
             // 
-            this.erase.Location = new System.Drawing.Point(30, 239);
+            this.erase.Location = new System.Drawing.Point(174, 255);
             this.erase.Name = "erase";
-            this.erase.Size = new System.Drawing.Size(156, 27);
+            this.erase.Size = new System.Drawing.Size(74, 52);
             this.erase.TabIndex = 16;
             this.erase.Text = "C";
             this.erase.UseVisualStyleBackColor = true;
@@ -229,7 +233,7 @@
             // 
             this.buttonDecimal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonDecimal.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.buttonDecimal.Location = new System.Drawing.Point(191, 181);
+            this.buttonDecimal.Location = new System.Drawing.Point(12, 226);
             this.buttonDecimal.Name = "buttonDecimal";
             this.buttonDecimal.Size = new System.Drawing.Size(75, 23);
             this.buttonDecimal.TabIndex = 17;
@@ -239,7 +243,7 @@
             // 
             // button_leftB
             // 
-            this.button_leftB.Location = new System.Drawing.Point(30, 210);
+            this.button_leftB.Location = new System.Drawing.Point(12, 255);
             this.button_leftB.Name = "button_leftB";
             this.button_leftB.Size = new System.Drawing.Size(75, 23);
             this.button_leftB.TabIndex = 18;
@@ -249,7 +253,7 @@
             // 
             // button_rightB
             // 
-            this.button_rightB.Location = new System.Drawing.Point(111, 210);
+            this.button_rightB.Location = new System.Drawing.Point(93, 255);
             this.button_rightB.Name = "button_rightB";
             this.button_rightB.Size = new System.Drawing.Size(75, 23);
             this.button_rightB.TabIndex = 19;
@@ -259,19 +263,48 @@
             // 
             // button_ec
             // 
-            this.button_ec.Location = new System.Drawing.Point(30, 272);
+            this.button_ec.Location = new System.Drawing.Point(12, 284);
             this.button_ec.Name = "button_ec";
-            this.button_ec.Size = new System.Drawing.Size(236, 42);
+            this.button_ec.Size = new System.Drawing.Size(156, 23);
             this.button_ec.TabIndex = 20;
             this.button_ec.Text = "ec";
             this.button_ec.UseVisualStyleBackColor = true;
             this.button_ec.Click += new System.EventHandler(this.button_ec_Click);
             // 
+            // button1_modulo
+            // 
+            this.button1_modulo.Location = new System.Drawing.Point(94, 226);
+            this.button1_modulo.Name = "button1_modulo";
+            this.button1_modulo.Size = new System.Drawing.Size(75, 23);
+            this.button1_modulo.TabIndex = 21;
+            this.button1_modulo.Text = "%";
+            this.button1_modulo.UseVisualStyleBackColor = true;
+            this.button1_modulo.Click += new System.EventHandler(this.button1_modulo_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(260, 24);
+            this.menuStrip1.TabIndex = 22;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(293, 323);
+            this.ClientSize = new System.Drawing.Size(260, 313);
+            this.Controls.Add(this.button1_modulo);
             this.Controls.Add(this.button_ec);
             this.Controls.Add(this.button_rightB);
             this.Controls.Add(this.button_leftB);
@@ -293,9 +326,14 @@
             this.Controls.Add(this.No2);
             this.Controls.Add(this.No1);
             this.Controls.Add(this.box1);
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Калкулатор by Veljko Stefanović";
+            this.Text = "Калкулатор";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,6 +362,9 @@
         private System.Windows.Forms.Button button_leftB;
         private System.Windows.Forms.Button button_rightB;
         private System.Windows.Forms.Button button_ec;
+        private System.Windows.Forms.Button button1_modulo;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

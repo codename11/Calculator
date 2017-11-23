@@ -805,5 +805,90 @@ namespace WindowsFormsApp5
 
         }
 
+        private void button1_modulo_Click(object sender, EventArgs e)
+        {
+            box1.Text += button1_modulo.Text;
+
+            string str1 = box1.Text;
+            string str2 = str1.Substring(str1.Length - 1);//Prikazuje zadnji znak u stringu.
+            string str3 = str1.Substring(str1.Length - 2, 1);//Prikazuje predzadnji znak u stringu.
+            int sign_count = 0;
+            int len = box1.Text.Length;
+            char strx;
+            if (str2 == str3 || (str3 == "+" || str3 == "-" || str3 == "*" || str3 == "/" || str3 == "."))
+            {
+                box1.Text = box1.Text.Substring(0, str1.Length - 2);//Skracuje string u text boxu za unesene znakove.
+                box1.Text += button1_modulo.Text;//Dodaje znak na skraceni string. 
+            }
+
+            for (int i = 0; i < len - 1; i++)
+            {
+                strx = box1.Text[i];
+                if (strx == '+' || strx == '-' || strx == '*' || strx == '/')
+                {
+                    sign_count++;
+                }
+
+            }
+
+            if (box1.Text[box1.Text.Length - 2] == '(' && box1.Text[box1.Text.Length - 1] == '/')
+            {
+                box1.Text = box1.Text.Substring(0, (len - 1));
+            }
+
+            if (bracketL == true && box1.Text[box1.Text.Length - 1] == '/')
+            {
+                box1.Text = box1.Text.Substring(0, (len - 1));
+            }
+
+            for (int i = 0; i < len - 1; i++)
+            {
+                if (box1.Text[i] == '(')
+                {
+                    bracketL = true;
+                }
+
+                if (box1.Text[i] == ')')
+                {
+                    bracketR = true;
+                }
+
+            }
+
+            if (bracketL == false && bracketR == false && box1.Text[len - 1] == '/')
+            {
+                DataTable dt = new DataTable();
+                var v = dt.Compute(box1.Text.Substring(0, (len - 1)), "");
+                box1.Text = v.ToString();
+                box1.Text += button1_modulo.Text;
+                res = true;
+                bracketL = false;
+                bracketR = false;
+            }
+
+            if (sign_count > 1 && ((bracketR == false && bracketL == false) || (bracketR == true && bracketL == true)))
+            {
+                DataTable dt = new DataTable();
+                var v = dt.Compute(box1.Text, "");
+                box1.Text = v.ToString();
+                box1.Text += button1_modulo.Text;
+                res = true;
+                bracketL = false;
+                bracketR = false;
+            }
+
+            sign = true;
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form2 = new Form2();
+            form2.Show();
+        }
+
+        /*
+         var form2 = new Form2();
+            form2.Show();
+         */
     }
 }
