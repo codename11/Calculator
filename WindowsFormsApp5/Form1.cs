@@ -886,9 +886,5 @@ namespace WindowsFormsApp5
             form2.Show();
         }
 
-        /*
-         var form2 = new Form2();
-            form2.Show();
-         */
     }
 }
